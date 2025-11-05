@@ -1,0 +1,67 @@
+{
+  "name": "ts2ppt",
+  "version": "0.0.0",
+  "description": "Ultra-fast TypeScript to PowerPoint (.pptx) templating engine using raw OOXML with pixel-accurate templates and loopable slides.",
+  "license": "MIT",
+  "author": "Zac Wright <you@example.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zacaw99/ts2ppt.git"
+  },
+  "homepage": "https://github.com/zacaw99/ts2ppt",
+  "bugs": {
+    "url": "https://github.com/zacaw99/ts2ppt/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --dts --format esm,cjs --sourcemap",
+    "dev": "tsup src/index.ts --dts --format esm,cjs --sourcemap --watch",
+    "clean": "rimraf dist",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build",
+    "changeset": "changeset",
+    "version-pack": "changeset version && npm run build",
+    "release": "changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.7",
+    "@types/node": "^22.19.0",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^9.1.2",
+    "eslint-plugin-import": "^2.32.0",
+    "prettier": "^3.6.2",
+    "rimraf": "^6.1.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3",
+    "vitest": "^2.1.9"
+  },
+  "keywords": [
+    "pptx",
+    "powerpoint",
+    "ooxml",
+    "typescript",
+    "templating",
+    "slides",
+    "zip"
+  ]
+}
